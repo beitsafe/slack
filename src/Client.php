@@ -374,6 +374,19 @@ class Client
 
         $this->guzzle->post($this->endpoint, ['body' => $encoded]);
     }
+    
+    /**
+     * Send a raw message
+     *
+     * @param array $message
+     * @return void
+     */
+   public function sendRaw($message)
+   {
+      $encoded = json_encode($message, JSON_UNESCAPED_UNICODE);
+      $this->guzzle->post($this->endpoint, ['body' => $encoded]);
+
+   }
 
     /**
      * Prepares the payload to be sent to the webhook.
